@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "417869428116",
+    "project_id": "employee-tracker-app-57675",
+    "storage_bucket": "employee-tracker-app-57675.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:417869428116:android:d4226204c346cadfea4b81",
+        "android_client_info": {
+          "package_name": "com.maad.eta"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "417869428116-23fott6ecnp23uib3g9balv24e6hjd3k.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCrVnAKV55qCUgIZ8WzdnIDEWzkpjkJ9VI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "417869428116-23fott6ecnp23uib3g9balv24e6hjd3k.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
