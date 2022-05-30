@@ -10,153 +10,162 @@
     app:cardCornerRadius="24dp"
     tools:context=".admin.AddEmployeeActivity">
 
-    <!-- <ScrollView
-         android:layout_width="match_parent"
-         android:layout_height="match_parent">
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
 
-         <androidx.constraintlayout.widget.ConstraintLayout
-             android:layout_width="match_parent"
-             android:layout_height="wrap_content"
-             android:padding="16dp">
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="16dp">
 
-             <com.google.android.material.textfield.TextInputLayout
-                 android:id="@+id/container_title"
-                 style="@style/Widget.Design.TextInputLayout"
-                 android:layout_width="match_parent"
-                 android:layout_height="wrap_content"
-                 android:hint="@string/enter_product_title"
-                 app:layout_constraintTop_toTopOf="parent">
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/container_name"
+                style="@style/Widget.Design.TextInputLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Employee Name"
+                app:layout_constraintTop_toTopOf="parent">
 
-                 <com.google.android.material.textfield.TextInputEditText
-                     android:id="@+id/et_title"
-                     android:layout_width="match_parent"
-                     android:layout_height="match_parent" />
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/et_name"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" />
 
-             </com.google.android.material.textfield.TextInputLayout>
+            </com.google.android.material.textfield.TextInputLayout>
 
-             <com.google.android.material.textfield.TextInputLayout
-                 android:id="@+id/container_description"
-                 style="@style/Widget.Design.TextInputLayout"
-                 android:layout_width="match_parent"
-                 android:layout_height="wrap_content"
-                 android:hint="@string/enter_product_description"
-                 app:layout_constraintTop_toBottomOf="@id/container_title">
+            <TextView
+                android:id="@+id/date_key_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="32dp"
+                android:text="Start date:"
+                android:textColor="@color/black"
+                android:textSize="16sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/container_name" />
 
-                 <com.google.android.material.textfield.TextInputEditText
-                     android:id="@+id/et_description"
-                     android:layout_width="match_parent"
-                     android:layout_height="match_parent"
-                     android:gravity="top"
-                     android:minLines="3" />
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/start_date_btn"
+                style="@style/BtnStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:hint="Choose Date"
+                android:padding="16dp"
+                app:layout_constraintBottom_toBottomOf="@id/date_key_tv"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/container_name" />
 
-             </com.google.android.material.textfield.TextInputLayout>
+            <TextView
+                android:id="@+id/date_value_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:text="Date shows here"
+                app:layout_constraintBottom_toBottomOf="@id/start_date_btn"
+                app:layout_constraintStart_toEndOf="@id/date_key_tv"
+                app:layout_constraintTop_toTopOf="@id/start_date_btn" />
 
-             <com.google.android.material.textfield.TextInputLayout
-                 android:id="@+id/container_price"
-                 style="@style/Widget.Design.TextInputLayout"
-                 android:layout_width="0dp"
-                 android:layout_height="wrap_content"
-                 android:layout_marginTop="16dp"
-                 android:hint="@string/enter_product_price"
-                 app:layout_constraintEnd_toStartOf="@id/container_quantity"
-                 app:layout_constraintStart_toStartOf="parent"
-                 app:layout_constraintTop_toBottomOf="@id/container_description">
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/container_salary"
+                style="@style/Widget.Design.TextInputLayout"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:hint="Salary"
+                app:layout_constraintEnd_toStartOf="@id/department_spinner"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/start_date_btn">
 
-                 <com.google.android.material.textfield.TextInputEditText
-                     android:id="@+id/et_price"
-                     android:layout_width="match_parent"
-                     android:layout_height="match_parent"
-                     android:inputType="numberDecimal" />
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/et_price"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:inputType="numberDecimal" />
 
-             </com.google.android.material.textfield.TextInputLayout>
+            </com.google.android.material.textfield.TextInputLayout>
 
+            <Spinner
+                android:id="@+id/department_spinner"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                app:layout_constraintBottom_toBottomOf="@id/container_salary"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/container_salary"
+                app:layout_constraintTop_toTopOf="@id/container_salary" />
 
-             <com.google.android.material.textfield.TextInputLayout
-                 android:id="@+id/container_quantity"
-                 style="@style/Widget.Design.TextInputLayout"
-                 android:layout_width="0dp"
-                 android:layout_height="wrap_content"
-                 android:hint="@string/enter_quantity"
-                 app:layout_constraintEnd_toEndOf="parent"
-                 app:layout_constraintStart_toEndOf="@id/container_price"
-                 app:layout_constraintTop_toTopOf="@id/container_price">
+            <TextView
+                android:id="@+id/employment_type_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:text="Employment Type:"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/container_salary" />
 
-                 <com.google.android.material.textfield.TextInputEditText
-                     android:id="@+id/et_quantity"
-                     android:layout_width="match_parent"
-                     android:layout_height="match_parent"
-                     android:inputType="number" />
+            <RadioGroup
+                android:checkedButton="@id/full_time_rb"
+                android:id="@+id/rg"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/employment_type_tv">
 
-             </com.google.android.material.textfield.TextInputLayout>
+                <RadioButton
+                    android:id="@+id/full_time_rb"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="full-time" />
 
-             <RadioGroup
-                 android:id="@+id/rg"
-                 android:layout_width="wrap_content"
-                 android:layout_height="wrap_content"
-                 app:layout_constraintStart_toStartOf="parent"
-                 app:layout_constraintTop_toBottomOf="@id/container_price">
+                <RadioButton
+                    android:id="@+id/part_time_rb"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="part-time" />
 
-                 <RadioButton
-                     android:id="@+id/rb_carpets"
-                     android:layout_width="wrap_content"
-                     android:layout_height="wrap_content"
-                     android:text="@string/carptes" />
+                <RadioButton
+                    android:id="@+id/hourly_rate_rb"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="hourly rate" />
 
-                 <RadioButton
-                     android:id="@+id/rb_bead"
-                     android:layout_width="wrap_content"
-                     android:layout_height="wrap_content"
-                     android:text="@string/bead" />
+            </RadioGroup>
 
-                 <RadioButton
-                     android:id="@+id/rb_pottery"
-                     android:layout_width="wrap_content"
-                     android:layout_height="wrap_content"
-                     android:text="@string/pottery" />
+            <ImageView
+                android:background="@drawable/box"
+                android:src="@drawable/ic_add_emp_pink"
+                android:id="@+id/employee_pic_iv"
+                android:layout_width="120dp"
+                android:layout_height="120dp"
+                android:layout_marginTop="8dp"
+                android:scaleType="centerCrop"
+                app:layout_constraintBottom_toBottomOf="@id/rg"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@id/rg" />
 
-             </RadioGroup>
+            <Button
+                android:id="@+id/confirm_btn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="32dp"
+                android:text="Confirm"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/employee_pic_iv" />
 
-             <ImageButton
-                 android:id="@+id/ib_product"
-                 android:layout_width="160dp"
-                 android:layout_height="160dp"
-                 android:layout_marginTop="8dp"
-                 android:onClick="choosePicture"
-                 android:scaleType="fitCenter"
-                 android:src="@drawable/ic_insert_photo"
-                 app:layout_constraintEnd_toEndOf="parent"
-                 app:layout_constraintTop_toTopOf="@id/rg" />
+            <ProgressBar
+                android:id="@+id/progress_bar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:visibility="invisible"
+                tools:visibility="visible"
+                app:layout_constraintBottom_toBottomOf="@id/rg"
+                app:layout_constraintEnd_toStartOf="@id/employee_pic_iv"
+                app:layout_constraintStart_toEndOf="@id/rg"
+                app:layout_constraintTop_toTopOf="@id/rg" />
 
-             <Button
-                 android:id="@+id/btn_upload"
-                 android:layout_width="wrap_content"
-                 android:layout_height="wrap_content"
-                 android:layout_marginTop="16dp"
-                 android:onClick="manageProduct"
-                 android:text="@string/add_product"
-                 app:layout_constraintEnd_toEndOf="parent"
-                 app:layout_constraintStart_toStartOf="parent"
-                 app:layout_constraintTop_toBottomOf="@id/ib_product" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
-             <ProgressBar
-                 android:id="@+id/progress_bar"
-                 android:layout_width="wrap_content"
-                 android:layout_height="wrap_content"
-                 android:visibility="invisible"
-                 app:layout_constraintEnd_toEndOf="parent"
-                 app:layout_constraintStart_toStartOf="parent"
-                 app:layout_constraintTop_toTopOf="@id/btn_upload" />
+    </ScrollView>
 
-         </androidx.constraintlayout.widget.ConstraintLayout>
-
-     </ScrollView>-->
-
-    <!--
-    Spinner for employee type
-    Call Centre
-    HR
-    Sales
-    
-    -->
-
- </androidx.cardview.widget.CardView>
+</androidx.cardview.widget.CardView>
