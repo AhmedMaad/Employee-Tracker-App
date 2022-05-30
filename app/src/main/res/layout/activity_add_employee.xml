@@ -34,6 +34,23 @@
 
             </com.google.android.material.textfield.TextInputLayout>
 
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/container_email"
+                style="@style/Widget.Design.TextInputLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:hint="Employee Email"
+                app:layout_constraintTop_toBottomOf="@id/container_name">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/email_et"
+                    android:inputType="textEmailAddress"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
             <TextView
                 android:id="@+id/date_key_tv"
                 android:layout_width="wrap_content"
@@ -43,7 +60,7 @@
                 android:textColor="@color/black"
                 android:textSize="16sp"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/container_name" />
+                app:layout_constraintTop_toBottomOf="@id/container_email" />
 
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/start_date_btn"
@@ -54,7 +71,7 @@
                 android:padding="16dp"
                 app:layout_constraintBottom_toBottomOf="@id/date_key_tv"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/container_name" />
+                app:layout_constraintTop_toBottomOf="@id/container_email" />
 
             <TextView
                 android:id="@+id/date_value_tv"
@@ -78,7 +95,7 @@
                 app:layout_constraintTop_toBottomOf="@id/start_date_btn">
 
                 <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/et_price"
+                    android:id="@+id/salary_et"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:inputType="numberDecimal" />
@@ -104,10 +121,10 @@
                 app:layout_constraintTop_toBottomOf="@id/container_salary" />
 
             <RadioGroup
-                android:checkedButton="@id/full_time_rb"
                 android:id="@+id/rg"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:checkedButton="@id/full_time_rb"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/employment_type_tv">
 
@@ -132,13 +149,13 @@
             </RadioGroup>
 
             <ImageView
-                android:background="@drawable/box"
-                android:src="@drawable/ic_add_emp_pink"
                 android:id="@+id/employee_pic_iv"
                 android:layout_width="120dp"
                 android:layout_height="120dp"
                 android:layout_marginTop="8dp"
+                android:background="@drawable/box"
                 android:scaleType="centerCrop"
+                android:src="@drawable/ic_add_emp_pink"
                 app:layout_constraintBottom_toBottomOf="@id/rg"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="@id/rg" />
@@ -158,11 +175,11 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:visibility="invisible"
-                tools:visibility="visible"
                 app:layout_constraintBottom_toBottomOf="@id/rg"
                 app:layout_constraintEnd_toStartOf="@id/employee_pic_iv"
                 app:layout_constraintStart_toEndOf="@id/rg"
-                app:layout_constraintTop_toTopOf="@id/rg" />
+                app:layout_constraintTop_toTopOf="@id/rg"
+                tools:visibility="visible" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 

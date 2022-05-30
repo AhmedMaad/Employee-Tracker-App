@@ -18,6 +18,11 @@ class AdminHomeActivity : AppCompatActivity() {
         val binding = ActivityAdminHomeBinding.inflate(layoutInflater)
         setContentView(binding.root)
         title = "Admin Home"
+
+        binding.addEmpBtn.setOnClickListener {
+            startActivity(Intent(this, AddEmployeeActivity::class.java└))
+        }
+
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {

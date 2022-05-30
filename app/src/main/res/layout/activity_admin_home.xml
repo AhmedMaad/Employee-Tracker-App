@@ -15,7 +15,7 @@
         android:layout_height="120dp"/>
 
     <com.google.android.material.button.MaterialButton
-        android:id="@+id/login_btn"
+        android:id="@+id/add_emp_btn"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Add Employee"

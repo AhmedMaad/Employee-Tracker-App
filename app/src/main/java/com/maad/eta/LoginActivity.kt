@@ -32,7 +32,7 @@ class LoginActivity : AppCompatActivity() {
                 auth.signInWithEmailAndPassword(mail, pass)
                     .addOnCompleteListener(this) {
                         if (it.isSuccessful)
-                            userType(mail)
+                            userType(mail, it.result.user!!.uid)
                         else
                             Toast.makeText(this, "Sorry, didn't find user", Toast.LENGTH_SHORT)
                                 .show()
@@ -45,10 +45,15 @@ class LoginActivity : AppCompatActivity() {
         super.onStart()
         val currentUser = auth.currentUser
         if (currentUser != null)
-            userType(currentUser.email!!)
+            userType(currentUser.email!!, currentUser.uid)
     }
 
-    private fun userType(mail: String) {
+    private fun userType(mail: String, id: String) {
+
+        val prefs = getSharedPreferences("settings", MODE_PRIVATE).edit()
+        prefs.putString("id", id)
+        prefs.apply()
+
         when (mail) {
             "hr@gmail.com" ->
                 startActivity(Intent(this, HRHomeActivity::class.java))
@@ -58,7 +63,7 @@ class LoginActivity : AppCompatActivity() {
                 startActivity(Intent(this, EmployeeHomeActivity::class.java))
         }
         finish()
-    }
 
+    }
 
 }
