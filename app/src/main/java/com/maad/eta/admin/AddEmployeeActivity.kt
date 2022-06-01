@@ -10,6 +10,8 @@ import android.widget.ArrayAdapter
 import android.widget.DatePicker
 import android.widget.RadioButton
 import android.widget.Toast
+import androidx.core.net.toUri
+import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.ktx.firestore
@@ -26,12 +28,13 @@ class AddEmployeeActivity : AppCompatActivity(), DatePickerDialog.OnDateSetListe
     private var imageUri: Uri? = null
     private var day = ""
     private lateinit var db: FirebaseFirestore
-    private val departments = arrayOf("x", "y", "z")
+    private val departments =
+        arrayOf("Agent", "Senior Agent", "Rs (Resolution Specialist)", "IT agent")
     private var userId = ""
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        val binding = ActivityAddEmployeeBinding.inflate(layoutInflater)
+        binding = ActivityAddEmployeeBinding.inflate(layoutInflater)
         setContentView(binding.root)
         db = Firebase.firestore
 
@@ -63,6 +66,7 @@ class AddEmployeeActivity : AppCompatActivity(), DatePickerDialog.OnDateSetListe
         auth.createUserWithEmailAndPassword(binding.emailEt.text.toString(), "123456")
             .addOnCompleteListener(this) { task ->
                 if (task.isSuccessful) {
+                    binding.progressBar.visibility = View.VISIBLE
                     userId = task.result.user!!.uid
                     uploadImage()
                 } else {
@@ -122,7 +126,8 @@ class AddEmployeeActivity : AppCompatActivity(), DatePickerDialog.OnDateSetListe
             selectedRb.text.toString(),
             imageUri.toString(),
             adminId,
-            binding.emailEt.text.toString()
+            binding.emailEt.text.toString(),
+            userId
         )
 
         db
@@ -132,12 +137,25 @@ class AddEmployeeActivity : AppCompatActivity(), DatePickerDialog.OnDateSetListe
             .addOnSuccessListener {
                 binding.progressBar.visibility = View.INVISIBLE
                 Toast.makeText(this, "Employee Added!", Toast.LENGTH_LONG).show()
-                resetFields()
+                sendCredentialsEmail()
             }
 
     }
 
-    fun resetFields() {
+    private fun sendCredentialsEmail() {
+        val i = Intent(Intent.ACTION_SEND, "mailto:".toUri())
+        i.type = "*/*"
+        i.putExtra(Intent.EXTRA_EMAIL, arrayOf(binding.emailEt.text.toString()))
+        i.putExtra(Intent.EXTRA_SUBJECT, "Welcome onboard \"${binding.etName.text}\"")
+        i.putExtra(
+            Intent.EXTRA_TEXT,
+            "Dear ${binding.etName.text},\nyou can now login to our system using these credentials:\n- Email: ${binding.emailEt.text}\n- Password: 123456\nNote: Don't forget to change your password after you login.\n\nBest regards,\nYour ETA Team."
+        )
+        startActivity(i)
+        resetFields()
+    }
+
+    private fun resetFields() {
         binding.etName.text!!.clear()
         binding.emailEt.text!!.clear()
         binding.dateValueTv.text = "Date shows here"

@@ -43,8 +43,10 @@ class LoginActivity : AppCompatActivity() {
 
     public override fun onStart() {
         super.onStart()
+        val prefs = getSharedPreferences("settings", MODE_PRIVATE)
+        val previouslyLoggedInUser = prefs.getString("id", null)
         val currentUser = auth.currentUser
-        if (currentUser != null)
+        if (currentUser != null && currentUser.uid == previouslyLoggedInUser)
             userType(currentUser.email!!, currentUser.uid)
     }
 
