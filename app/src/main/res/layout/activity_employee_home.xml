@@ -1,9 +1,125 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".employee.EmployeeHomeActivity">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/iv_cv"
+            android:layout_width="96dp"
+            android:layout_height="96dp"
+            android:layout_marginTop="24dp"
+            app:cardCornerRadius="48dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <ImageView
+                android:id="@+id/pp_iv"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:scaleType="centerCrop"
+                android:src="@drawable/ic_person" />
+
+        </androidx.cardview.widget.CardView>
+
+        <TextView
+            android:id="@+id/name_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="120dp"
+            android:layout_marginTop="16dp"
+            android:gravity="center|top"
+            android:text="Hello,"
+            android:textColor="@color/black"
+            android:textSize="28sp"
+            app:layout_constraintEnd_toEndOf="@id/iv_cv"
+            app:layout_constraintStart_toStartOf="@id/iv_cv"
+            app:layout_constraintTop_toBottomOf="@id/iv_cv" />
+
+        <View
+            android:id="@+id/v"
+            android:layout_width="1dp"
+            android:layout_height="1dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/annual_cv"
+            android:layout_width="160dp"
+            android:layout_height="160dp"
+            android:layout_marginTop="64dp"
+            android:layout_marginEnd="16dp"
+            app:cardCornerRadius="24dp"
+            app:layout_constraintBottom_toTopOf="@id/v"
+            app:layout_constraintEnd_toStartOf="@id/v"
+            app:layout_constraintTop_toBottomOf="@id/name_tv">
+
+            <TextView
+                style="@style/EmpHomeTV"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Request\nAnnual\nVacation" />
+
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/sick_cv"
+            android:layout_width="160dp"
+            android:layout_height="160dp"
+            android:layout_marginStart="16dp"
+            app:cardCornerRadius="24dp"
+            app:layout_constraintBottom_toTopOf="@id/v"
+            app:layout_constraintStart_toEndOf="@id/v">
+
+            <TextView
+                style="@style/EmpHomeTV"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Submit\nSick\nRequest" />
+
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/slip_cv"
+            android:layout_width="160dp"
+            android:layout_height="160dp"
+            android:layout_marginTop="32dp"
+            app:cardCornerRadius="24dp"
+            app:layout_constraintEnd_toEndOf="@id/annual_cv"
+            app:layout_constraintTop_toBottomOf="@id/annual_cv">
+
+            <TextView
+                style="@style/EmpHomeTV"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Request\nPay\nSlip" />
+
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/sign_cv"
+            android:layout_width="160dp"
+            android:layout_height="160dp"
+            app:cardCornerRadius="24dp"
+            app:layout_constraintStart_toStartOf="@id/sick_cv"
+            app:layout_constraintTop_toTopOf="@id/slip_cv">
+
+            <TextView
+                style="@style/EmpHomeTV"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Sign In\n\nSign Out" />
+
+        </androidx.cardview.widget.CardView>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</ScrollView>
