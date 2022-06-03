@@ -42,21 +42,11 @@
             app:layout_constraintStart_toStartOf="@id/iv_cv"
             app:layout_constraintTop_toBottomOf="@id/iv_cv" />
 
-        <View
-            android:id="@+id/v"
-            android:layout_width="1dp"
-            android:layout_height="1dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
         <androidx.cardview.widget.CardView
             android:id="@+id/annual_cv"
             android:layout_width="160dp"
             android:layout_height="160dp"
-            android:layout_marginTop="32dp"
-            android:layout_marginEnd="16dp"
+            android:layout_marginEnd="8dp"
             app:cardCornerRadius="24dp"
             app:layout_constraintBottom_toTopOf="@id/v"
             app:layout_constraintEnd_toStartOf="@id/v"
@@ -74,7 +64,7 @@
             android:id="@+id/sick_cv"
             android:layout_width="160dp"
             android:layout_height="160dp"
-            android:layout_marginStart="16dp"
+            android:layout_marginStart="8dp"
             app:cardCornerRadius="24dp"
             app:layout_constraintBottom_toTopOf="@id/v"
             app:layout_constraintStart_toEndOf="@id/v">
@@ -91,7 +81,7 @@
             android:id="@+id/slip_cv"
             android:layout_width="160dp"
             android:layout_height="160dp"
-            android:layout_marginTop="32dp"
+            android:layout_marginTop="16dp"
             app:cardCornerRadius="24dp"
             app:layout_constraintEnd_toEndOf="@id/annual_cv"
             app:layout_constraintTop_toBottomOf="@id/annual_cv">
@@ -119,6 +109,15 @@
                 android:text="Sign In\n\nSign Out" />
 
         </androidx.cardview.widget.CardView>
+
+        <View
+            android:id="@+id/v"
+            android:layout_width="1dp"
+            android:layout_height="1dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

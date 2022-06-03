@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">ETA</string>
+    <string name="click_to_choose_date"><u>Click to choose date</u></string>
 </resources>
