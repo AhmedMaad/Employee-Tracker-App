@@ -16,7 +16,7 @@
             android:name=".employee.SignInOutActivity"
             android:exported="false" />
         <activity
-            android:name=".employee.PaySlipActivity"
+            android:name=".employee.ViewPaySlipActivity"
             android:exported="false" />
         <activity
             android:name=".employee.SickRequestActivity"

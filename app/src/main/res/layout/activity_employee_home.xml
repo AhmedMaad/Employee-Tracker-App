@@ -94,6 +94,17 @@
 
         </androidx.cardview.widget.CardView>
 
+        <ProgressBar
+            android:id="@+id/progress"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:visibility="invisible"
+            app:layout_constraintBottom_toBottomOf="@id/slip_cv"
+            app:layout_constraintEnd_toEndOf="@id/slip_cv"
+            app:layout_constraintStart_toStartOf="@id/slip_cv"
+            app:layout_constraintTop_toTopOf="@id/slip_cv"
+            tools:visibility="visible" />
+
         <androidx.cardview.widget.CardView
             android:id="@+id/sign_cv"
             android:layout_width="160dp"
@@ -118,6 +129,23 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/view_slip_cv"
+            android:layout_width="160dp"
+            android:layout_height="160dp"
+            android:layout_marginTop="16dp"
+            app:cardCornerRadius="24dp"
+            app:layout_constraintEnd_toEndOf="@id/annual_cv"
+            app:layout_constraintTop_toBottomOf="@id/slip_cv">
+
+            <TextView
+                style="@style/EmpHomeTV"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="View\nPay\nSlip" />
+
+        </androidx.cardview.widget.CardView>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

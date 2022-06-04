@@ -11,6 +11,7 @@
         <entry key="..\:/Work/Freelance/Employee Tracker App/app/src/main/res/drawable/ic_admin.xml" value="0.158" />
         <entry key="..\:/Work/Freelance/Employee Tracker App/app/src/main/res/drawable/ic_email.xml" value="0.2" />
         <entry key="..\:/Work/Freelance/Employee Tracker App/app/src/main/res/drawable/ic_image.xml" value="0.1575" />
+        <entry key="..\:/Work/Freelance/Employee Tracker App/app/src/main/res/drawable/ic_money.xml" value="0.1205" />
         <entry key="..\:/Work/Freelance/Employee Tracker App/app/src/main/res/drawable/ic_password.xml" value="0.186" />
         <entry key="..\:/Work/Freelance/Employee Tracker App/app/src/main/res/drawable/ic_person.xml" value="0.1645" />
         <entry key="..\:/Work/Freelance/Employee Tracker App/app/src/main/res/drawable/ic_person_profile.xml" value="0.143" />
@@ -18,11 +19,11 @@
         <entry key="..\:/Work/Freelance/Employee Tracker App/app/src/main/res/layout/activity_add_employee.xml" value="0.1921875" />
         <entry key="..\:/Work/Freelance/Employee Tracker App/app/src/main/res/layout/activity_admin_home.xml" value="0.15775972637879435" />
         <entry key="..\:/Work/Freelance/Employee Tracker App/app/src/main/res/layout/activity_annual_vacation.xml" value="0.22" />
-        <entry key="..\:/Work/Freelance/Employee Tracker App/app/src/main/res/layout/activity_employee_home.xml" value="0.1921875" />
+        <entry key="..\:/Work/Freelance/Employee Tracker App/app/src/main/res/layout/activity_employee_home.xml" value="0.15576192486281132" />
         <entry key="..\:/Work/Freelance/Employee Tracker App/app/src/main/res/layout/activity_hrhome.xml" value="0.15775972637879435" />
         <entry key="..\:/Work/Freelance/Employee Tracker App/app/src/main/res/layout/activity_login.xml" value="0.1921875" />
         <entry key="..\:/Work/Freelance/Employee Tracker App/app/src/main/res/layout/activity_new_annual_request.xml" value="0.25" />
-        <entry key="..\:/Work/Freelance/Employee Tracker App/app/src/main/res/layout/activity_pay_slip.xml" value="0.15775972637879435" />
+        <entry key="..\:/Work/Freelance/Employee Tracker App/app/src/main/res/layout/activity_pay_slip.xml" value="0.2" />
         <entry key="..\:/Work/Freelance/Employee Tracker App/app/src/main/res/layout/activity_sick_request.xml" value="0.22" />
         <entry key="..\:/Work/Freelance/Employee Tracker App/app/src/main/res/layout/activity_sign_in_out.xml" value="0.15775972637879435" />
         <entry key="..\:/Work/Freelance/Employee Tracker App/app/src/main/res/layout/change_pass_layout.xml" value="0.25" />

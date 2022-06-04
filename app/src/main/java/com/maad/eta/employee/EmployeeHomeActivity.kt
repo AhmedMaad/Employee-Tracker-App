@@ -5,6 +5,7 @@ import android.content.Intent
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
+import android.view.View
 import android.widget.EditText
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
@@ -53,8 +54,21 @@ class EmployeeHomeActivity : AppCompatActivity() {
             startActivity(Intent(this, SignInOutActivity::class.java))
         }
 
+        binding.viewSlipCv.setOnClickListener {
+            startActivity(Intent(this, ViewPaySlipActivity::class.java))
+        }
+
         binding.slipCv.setOnClickListener {
-            startActivity(Intent(this, PaySlipActivity::class.java))
+            binding.progress.visibility = View.VISIBLE
+            binding.slipCv.visibility = View.INVISIBLE
+            val map = HashMap<String, String>()
+            map["id"] = id
+            map["status"] = "pending"
+            db.collection("PaySlips").add(map).addOnSuccessListener {
+                binding.progress.visibility = View.INVISIBLE
+                binding.slipCv.visibility = View.VISIBLE
+                Toast.makeText(this, "Request sent to HR", Toast.LENGTH_SHORT).show();
+            }
         }
 
     }
