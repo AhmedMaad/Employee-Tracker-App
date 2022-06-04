@@ -1,14 +1,24 @@
 package com.maad.eta.employee
 
+import android.media.MediaPlayer
 import android.os.Bundle
 import android.util.Log
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import com.google.firebase.firestore.FirebaseFirestore
+import com.google.firebase.firestore.ktx.firestore
+import com.google.firebase.ktx.Firebase
+import com.google.firebase.storage.FirebaseStorage
 import com.google.zxing.Result
+import com.maad.eta.R
 import me.dm7.barcodescanner.zxing.ZXingScannerView
+import java.util.*
+import kotlin.collections.HashMap
 
 class SignInOutActivity : AppCompatActivity(), ZXingScannerView.ResultHandler {
 
     private lateinit var scanner: ZXingScannerView
+    private lateinit var db: FirebaseFirestore
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -16,6 +26,7 @@ class SignInOutActivity : AppCompatActivity(), ZXingScannerView.ResultHandler {
         title = "Sign In/Out"
         scanner = ZXingScannerView(this)
         setContentView(scanner)
+        db = Firebase.firestore
     }
 
     override fun onResume() {
@@ -30,15 +41,39 @@ class SignInOutActivity : AppCompatActivity(), ZXingScannerView.ResultHandler {
     }
 
     override fun handleResult(rawResult: Result?) {
-        // Do something with the result here
-        Log.d("trace", rawResult!!.text) // Prints scan results
-        Log.d(
-            "trace",
-            rawResult.barcodeFormat.toString()
-        )  // Prints the scan format (qrcode, pdf417 etc.)
-        // If you would like to resume scanning, call this method below:
-        scanner.resumeCameraPreview(this)
-        //when "ETA" is detected then send to firebase the date and user id
+        val prefs = getSharedPreferences("settings", MODE_PRIVATE)
+        val id = prefs.getString("id", null)!!
+
+        val now = Calendar.getInstance()
+        val y = now.get(Calendar.YEAR)
+        val m = now.get(Calendar.MONTH) + 1
+
+        val d = now.get(Calendar.DAY_OF_MONTH)
+        val h = now.get(Calendar.HOUR_OF_DAY)
+        val min = now.get(Calendar.MINUTE)
+        val s = now.get(Calendar.SECOND)
+        val day = "$d-$m-$y"
+        val time = "$h:$min:$s"
+
+        val map = HashMap<String, String>()
+        map["id"] = id
+        map["day"] = day
+        map["time"] = time
+
+        if (rawResult!!.text == "ETA") {
+            val media = MediaPlayer.create(this, R.raw.thank_you)
+            db.collection("trackers").add(map).addOnSuccessListener {
+                media.start()
+                Toast.makeText(this, "Thank you!", Toast.LENGTH_LONG).show()
+                finish()
+            }
+        } else {
+            val media = MediaPlayer.create(this, R.raw.try_again)
+            media.start()
+            Toast.makeText(this, "Please, Try Again!", Toast.LENGTH_LONG).show()
+            finish()
+        }
+
     }
 
 }
