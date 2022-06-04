@@ -1,7 +1,8 @@
 package com.maad.eta.employee
 
-import android.R.attr.password
+import android.Manifest
 import android.content.Intent
+import android.content.pm.PackageManager
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
@@ -10,6 +11,7 @@ import android.widget.EditText
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.app.ActivityCompat
 import com.bumptech.glide.Glide
 import com.google.android.gms.tasks.Task
 import com.google.firebase.auth.FirebaseAuth
@@ -32,6 +34,11 @@ class EmployeeHomeActivity : AppCompatActivity() {
         setContentView(binding.root)
         db = Firebase.firestore
         title = "Home"
+
+        if (ActivityCompat.checkSelfPermission(this, Manifest.permission.CAMERA) !=
+            PackageManager.PERMISSION_GRANTED
+        )
+            requestPermissions(arrayOf(Manifest.permission.CAMERA), 101)
 
         val prefs = getSharedPreferences("settings", MODE_PRIVATE)
         val id = prefs.getString("id", null)!!
