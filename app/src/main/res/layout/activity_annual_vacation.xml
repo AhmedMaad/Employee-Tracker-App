@@ -120,7 +120,8 @@
             app:layout_constraintStart_toStartOf="@id/history_lv"
             app:layout_constraintTop_toBottomOf="@id/history_iv" />
 
-        <Button
+        <com.google.android.material.button.MaterialButton
+            app:cornerRadius="24dp"
             android:id="@+id/new_request_btn"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

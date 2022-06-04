@@ -25,7 +25,8 @@
         android:textStyle="bold"
         tools:text="@tools:sample/date/ddmmyy" />
 
-    <Button
+    <com.google.android.material.button.MaterialButton
+        app:cornerRadius="24dp"
         android:id="@+id/submit_request_btn"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

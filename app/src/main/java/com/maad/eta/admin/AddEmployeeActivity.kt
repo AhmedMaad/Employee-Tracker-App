@@ -83,7 +83,6 @@ class AddEmployeeActivity : AppCompatActivity(), DatePickerDialog.OnDateSetListe
             imageUri = data?.data
             binding.employeePicIv.setImageURI(imageUri)
         }
-
     }
 
     override fun onDateSet(view: DatePicker?, year: Int, month: Int, dayOfMonth: Int) {
