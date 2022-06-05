@@ -52,12 +52,12 @@ class SignInOutActivity : AppCompatActivity(), ZXingScannerView.ResultHandler {
         val h = now.get(Calendar.HOUR_OF_DAY)
         val min = now.get(Calendar.MINUTE)
         val s = now.get(Calendar.SECOND)
-        val day = "$d-$m-$y"
+        val date = "$d-$m-$y"
         val time = "$h:$min:$s"
 
         val map = HashMap<String, String>()
         map["id"] = id
-        map["day"] = day
+        map["date"] = date
         map["time"] = time
 
         if (rawResult!!.text == "ETA") {

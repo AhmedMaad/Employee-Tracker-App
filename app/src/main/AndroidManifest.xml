@@ -12,6 +12,12 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.ETA">
         <activity
+            android:name=".hr.TotalAbsenceActivity"
+            android:exported="false" />
+        <activity
+            android:name=".hr.PaySlipRequestActivity"
+            android:exported="false" />
+        <activity
             android:name=".employee.EmpViewSickRequestActivity"
             android:exported="false" />
         <activity

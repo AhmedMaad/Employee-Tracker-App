@@ -35,7 +35,7 @@ class HRHomeActivity : AppCompatActivity() {
         }
 
         binding.slipCv.setOnClickListener {
-            startActivity(Intent(this, SendPaySlipActivity::class.java))
+            startActivity(Intent(this, PaySlipRequestActivity::class.java))
         }
 
     }

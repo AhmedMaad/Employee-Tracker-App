@@ -68,13 +68,13 @@ class EmployeeHomeActivity : AppCompatActivity() {
         binding.slipCv.setOnClickListener {
             binding.progress.visibility = View.VISIBLE
             binding.slipCv.visibility = View.INVISIBLE
-            val map = HashMap<String, String>()
-            map["id"] = id
-            map["status"] = "pending"
-            db.collection("PaySlips").add(map).addOnSuccessListener {
-                binding.progress.visibility = View.INVISIBLE
-                binding.slipCv.visibility = View.VISIBLE
-                Toast.makeText(this, "Request sent to HR", Toast.LENGTH_SHORT).show();
+            val slip = PaySlip(id)
+            db.collection("PaySlips").add(slip).addOnSuccessListener {
+                it.update("slipId", it.id).addOnSuccessListener {
+                    binding.progress.visibility = View.INVISIBLE
+                    binding.slipCv.visibility = View.VISIBLE
+                    Toast.makeText(this, "Request sent to HR", Toast.LENGTH_SHORT).show()
+                }
             }
         }
 

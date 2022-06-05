@@ -10,5 +10,8 @@ class ViewPaySlipActivity : AppCompatActivity() {
         val binding = ActivityViewPaySlipBinding.inflate(layoutInflater)
         setContentView(binding.root)
         title = "Pay Slip"
+
+        //show work is fulltime , position (android develpoer)
+
     }
 }
