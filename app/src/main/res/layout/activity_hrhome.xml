@@ -1,9 +1,78 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".hr.HRHomeActivity">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center">
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/annual_cv"
+            android:layout_width="160dp"
+            android:layout_height="160dp"
+            android:layout_marginEnd="8dp"
+            app:cardCornerRadius="24dp"
+            app:layout_constraintBottom_toTopOf="@id/v"
+            app:layout_constraintEnd_toStartOf="@id/v"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <TextView
+                style="@style/EmpHomeTV"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="View\nAnnual\nVacations" />
+
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/sick_cv"
+            android:layout_width="160dp"
+            android:layout_height="160dp"
+            android:layout_marginStart="8dp"
+            app:cardCornerRadius="24dp"
+            app:layout_constraintBottom_toTopOf="@id/v"
+            app:layout_constraintStart_toEndOf="@id/v"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <TextView
+                style="@style/EmpHomeTV"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="View\nSick\nRequests" />
+
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/slip_cv"
+            android:layout_width="160dp"
+            android:layout_height="160dp"
+            android:layout_marginTop="16dp"
+            app:cardCornerRadius="24dp"
+            app:layout_constraintEnd_toEndOf="@id/annual_cv"
+            app:layout_constraintTop_toBottomOf="@id/annual_cv">
+
+            <TextView
+                style="@style/EmpHomeTV"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Send\nPay\nSlip" />
+
+        </androidx.cardview.widget.CardView>
+
+        <View
+            android:id="@+id/v"
+            android:layout_width="1dp"
+            android:layout_height="1dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</ScrollView>

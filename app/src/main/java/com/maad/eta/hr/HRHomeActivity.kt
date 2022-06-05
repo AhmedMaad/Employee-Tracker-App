@@ -18,18 +18,44 @@ class HRHomeActivity : AppCompatActivity() {
         val binding = ActivityHrhomeBinding.inflate(layoutInflater)
         setContentView(binding.root)
         title = "HR Home"
+
+        binding.annualCv.setOnClickListener {
+            startActivity(Intent(this, ViewAnnualVacationActivity::class.java))
+        }
+
+        binding.sickCv.setOnClickListener {
+            startActivity(Intent(this, ViewSickRequestActivity::class.java))
+        }
+
+        binding.slipCv.setOnClickListener {
+            startActivity(Intent(this, SendPaySlipActivity::class.java))
+        }
+
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
-        menuInflater.inflate(R.menu.logout_menu, menu)
+        menuInflater.inflate(R.menu.hr_menu, menu)
         return true
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        Firebase.auth.signOut()
-        startActivity(Intent(this, LoginActivity::class.java))
-        finishAffinity()
+        when (item.itemId) {
+            R.id.logout_item -> {
+                Firebase.auth.signOut()
+                startActivity(Intent(this, LoginActivity::class.java))
+                finishAffinity()
+            }
+            R.id.restore_item -> restoreEverything()
+        }
+
         return super.onOptionsItemSelected(item)
+    }
+
+    /*
+    * This function should be used at the beginning of each year
+    * */
+    private fun restoreEverything() {
+
     }
 
 }

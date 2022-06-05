@@ -144,11 +144,11 @@ class AddEmployeeActivity : AppCompatActivity(), DatePickerDialog.OnDateSetListe
     private fun sendCredentialsEmail() {
         val i = Intent(Intent.ACTION_SEND, "mailto:".toUri())
         i.type = "*/*"
-        i.putExtra(Intent.EXTRA_EMAIL, arrayOf(binding.emailEt.text.toString()))
+        /*i.putExtra(Intent.EXTRA_EMAIL, arrayOf(binding.emailEt.text.toString()))*/
         i.putExtra(Intent.EXTRA_SUBJECT, "Welcome onboard \"${binding.etName.text}\"")
         i.putExtra(
             Intent.EXTRA_TEXT,
-            "Dear ${binding.etName.text},\nyou can now login to our system using these credentials:\n- Email: ${binding.emailEt.text}\n- Password: 123456\nNote: Don't forget to change your password after you login.\n\nBest regards,\nYour ETA Team."
+            "Dear ${binding.etName.text},\n\nyou can now login to our system using these credentials:\n\n- Email: ${binding.emailEt.text}\n- Password: 123456\n\nNote: Don't forget to change your password after you login.\n\nBest regards,\nYour ETA Team."
         )
         startActivity(i)
         resetFields()

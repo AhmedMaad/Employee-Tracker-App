@@ -12,6 +12,15 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.ETA">
         <activity
+            android:name=".hr.SendPaySlipActivity"
+            android:exported="false" />
+        <activity
+            android:name=".hr.ViewSickRequestActivity"
+            android:exported="false" />
+        <activity
+            android:name=".hr.ViewAnnualVacationActivity"
+            android:exported="false" />
+        <activity
             android:name=".employee.NewAnnualRequestActivity"
             android:exported="false" />
         <activity

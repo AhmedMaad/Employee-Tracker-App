@@ -20,14 +20,17 @@
         <entry key="..\:/Work/Freelance/Employee Tracker App/app/src/main/res/layout/activity_admin_home.xml" value="0.15775972637879435" />
         <entry key="..\:/Work/Freelance/Employee Tracker App/app/src/main/res/layout/activity_annual_vacation.xml" value="0.22" />
         <entry key="..\:/Work/Freelance/Employee Tracker App/app/src/main/res/layout/activity_employee_home.xml" value="0.15576192486281132" />
-        <entry key="..\:/Work/Freelance/Employee Tracker App/app/src/main/res/layout/activity_hrhome.xml" value="0.15775972637879435" />
+        <entry key="..\:/Work/Freelance/Employee Tracker App/app/src/main/res/layout/activity_hrhome.xml" value="0.25" />
         <entry key="..\:/Work/Freelance/Employee Tracker App/app/src/main/res/layout/activity_login.xml" value="0.1921875" />
         <entry key="..\:/Work/Freelance/Employee Tracker App/app/src/main/res/layout/activity_new_annual_request.xml" value="0.25" />
         <entry key="..\:/Work/Freelance/Employee Tracker App/app/src/main/res/layout/activity_pay_slip.xml" value="0.2" />
+        <entry key="..\:/Work/Freelance/Employee Tracker App/app/src/main/res/layout/activity_send_pay_slip.xml" value="0.14621633176571183" />
         <entry key="..\:/Work/Freelance/Employee Tracker App/app/src/main/res/layout/activity_sick_request.xml" value="0.22" />
         <entry key="..\:/Work/Freelance/Employee Tracker App/app/src/main/res/layout/activity_sign_in_out.xml" value="0.15775972637879435" />
+        <entry key="..\:/Work/Freelance/Employee Tracker App/app/src/main/res/layout/activity_view_sick_request.xml" value="0.14621633176571183" />
         <entry key="..\:/Work/Freelance/Employee Tracker App/app/src/main/res/layout/change_pass_layout.xml" value="0.25" />
         <entry key="..\:/Work/Freelance/Employee Tracker App/app/src/main/res/menu/emp_menu.xml" value="0.15775972637879435" />
+        <entry key="..\:/Work/Freelance/Employee Tracker App/app/src/main/res/menu/hr_menu.xml" value="0.15775972637879435" />
         <entry key="..\:/Work/Freelance/Employee Tracker App/app/src/main/res/menu/logout_menu.xml" value="0.1921875" />
       </map>
     </option>
