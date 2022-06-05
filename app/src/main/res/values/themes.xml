@@ -14,4 +14,15 @@
         <!-- Customize your theme here. -->
         <item name="android:windowBackground">@drawable/gradient_bg</item>
     </style>
+
+    <style name="Theme.ETA.Fullscreen" parent="Theme.ETA">
+        <item name="android:actionBarStyle">@style/Widget.Theme.ETA.ActionBar.Fullscreen</item>
+        <item name="android:windowActionBarOverlay">true</item>
+        <item name="android:windowBackground">@null</item>
+    </style>
+
+    <style name="ThemeOverlay.ETA.FullscreenContainer" parent="">
+        <item name="fullscreenBackgroundColor">@color/light_blue_600</item>
+        <item name="fullscreenTextColor">@color/light_blue_A200</item>
+    </style>
 </resources>

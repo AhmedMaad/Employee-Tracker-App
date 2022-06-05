@@ -12,6 +12,18 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.ETA">
         <activity
+            android:name=".employee.EmpViewSickRequestActivity"
+            android:exported="false" />
+        <activity
+            android:name=".hr.FullImageActivity"
+            android:exported="false" />
+        <activity
+            android:name=".employee.ImageFullscreenActivity"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:exported="false"
+            android:label="@string/title_activity_image_fullscreen"
+            android:theme="@style/Theme.ETA.Fullscreen" />
+        <activity
             android:name=".hr.SendPaySlipActivity"
             android:exported="false" />
         <activity

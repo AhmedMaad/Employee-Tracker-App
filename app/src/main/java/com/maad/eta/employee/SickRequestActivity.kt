@@ -78,10 +78,14 @@ class SickRequestActivity : AppCompatActivity() {
         val id = prefs.getString("id", null)!!
         val sickRequest = SickRequest(id, imageUri.toString(), details)
         db.collection("SickRequests").add(sickRequest).addOnSuccessListener {
-            binding.progress.visibility = View.INVISIBLE
-            binding.submitRequestBtn.visibility = View.VISIBLE
-            Toast.makeText(this, "Request Submitted", Toast.LENGTH_SHORT).show()
-            finish()
+            val map = HashMap<String, String>()
+            map["requestId"] = it.id
+            it.update(map as Map<String, String>).addOnSuccessListener {
+                binding.progress.visibility = View.INVISIBLE
+                binding.submitRequestBtn.visibility = View.VISIBLE
+                Toast.makeText(this, "Request Submitted", Toast.LENGTH_SHORT).show()
+                finish()
+            }
         }
     }
 

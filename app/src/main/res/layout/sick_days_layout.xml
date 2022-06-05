@@ -8,15 +8,16 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Update Password:"
+        android:text="Sick Days:"
         android:textColor="@color/black"
         android:textSize="16sp"
         android:textStyle="bold" />
 
     <EditText
-        android:id="@+id/pass_et"
+        android:id="@+id/number_et"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Write new password" />
+        android:hint="(e.g. 5)"
+        android:inputType="number" />
 
 </LinearLayout>

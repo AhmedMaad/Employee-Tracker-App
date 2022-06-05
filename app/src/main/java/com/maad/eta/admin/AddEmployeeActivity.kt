@@ -62,11 +62,11 @@ class AddEmployeeActivity : AppCompatActivity(), DatePickerDialog.OnDateSetListe
     }
 
     private fun addEmailPass() {
+        binding.progressBar.visibility = View.VISIBLE
         val auth = Firebase.auth
         auth.createUserWithEmailAndPassword(binding.emailEt.text.toString(), "123456")
             .addOnCompleteListener(this) { task ->
                 if (task.isSuccessful) {
-                    binding.progressBar.visibility = View.VISIBLE
                     userId = task.result.user!!.uid
                     uploadImage()
                 } else {
