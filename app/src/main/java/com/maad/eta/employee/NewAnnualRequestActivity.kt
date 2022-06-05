@@ -13,7 +13,10 @@ import com.maad.eta.databinding.ActivityNewAnnualRequestBinding
 
 class NewAnnualRequestActivity : AppCompatActivity(), DatePickerDialog.OnDateSetListener {
 
+    private var date = ""
+    private var month = ""
     private var day = ""
+    private var year = ""
     private lateinit var binding: ActivityNewAnnualRequestBinding
     private lateinit var db: FirebaseFirestore
 
@@ -34,7 +37,7 @@ class NewAnnualRequestActivity : AppCompatActivity(), DatePickerDialog.OnDateSet
             else{
                 val prefs = getSharedPreferences("settings", MODE_PRIVATE)
                 val id = prefs.getString("id", null)!!
-                val vacation = Vacation(id, day)
+                val vacation = Vacation(id, date, year, month, day)
                 db.collection("annualVacations").add(vacation).addOnSuccessListener {
                     Toast.makeText(this, "Enjoy your vacation!", Toast.LENGTH_SHORT).show();
                     finish()
@@ -46,8 +49,11 @@ class NewAnnualRequestActivity : AppCompatActivity(), DatePickerDialog.OnDateSet
     }
 
     override fun onDateSet(view: DatePicker?, year: Int, month: Int, dayOfMonth: Int) {
-        day = "$year/${month + 1}/$dayOfMonth"
-        binding.dateTv.text = day
+        date = "$year/${month + 1}/$dayOfMonth"
+        this.month = "${(month+1)}"
+        this.year = year.toString()
+        this.day = dayOfMonth.toString()
+        binding.dateTv.text = date
     }
 
 }
