@@ -22,7 +22,6 @@ class SignInOutActivity : AppCompatActivity(), ZXingScannerView.ResultHandler {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        // val binding = ActivitySignInOutBinding.inflate(layoutInflater)
         title = "Sign In/Out"
         scanner = ZXingScannerView(this)
         setContentView(scanner)
@@ -55,18 +54,43 @@ class SignInOutActivity : AppCompatActivity(), ZXingScannerView.ResultHandler {
         val date = "$d-$m-$y"
         val time = "$h:$min:$s"
 
-        val map = HashMap<String, String>()
-        map["id"] = id
-        map["date"] = date
-        map["time"] = time
+        val tracker = Tracker(id, date, time)
+        var dateFound = false
+        var trackId = ""
+        var foundTime = ""
 
         if (rawResult!!.text == "ETA") {
-            val media = MediaPlayer.create(this, R.raw.thank_you)
-            db.collection("trackers").add(map).addOnSuccessListener {
-                media.start()
-                Toast.makeText(this, "Thank you!", Toast.LENGTH_LONG).show()
-                finish()
+
+            db.collection("trackers").get().addOnSuccessListener { it ->
+                val all = it.toObjects(Tracker::class.java)
+                for (tracking in all)
+                    if (tracking.date == date && tracking.EmpId == id) {
+                        Log.d("trace", "date found")
+                        dateFound = true
+                        foundTime = tracking.time
+                        trackId = tracking.trackId
+                        break
+                    }
+
+                if (!dateFound) {
+                    db.collection("trackers").add(tracker).addOnSuccessListener { doc ->
+                        val trackIdMap = HashMap<String, String>()
+                        trackIdMap["trackId"] = doc.id
+                        doc.update(trackIdMap as Map<String, String>).addOnSuccessListener {
+                            playSuccessSound()
+                        }
+                    }
+                } else {
+                    val updatedTracker = Tracker(id, date, "$foundTime\n$time", trackId)
+                    db.collection("trackers").document(trackId).set(updatedTracker)
+                        .addOnSuccessListener {
+                            playSuccessSound()
+                        }
+                }
+
             }
+
+
         } else {
             val media = MediaPlayer.create(this, R.raw.try_again)
             media.start()
@@ -74,6 +98,13 @@ class SignInOutActivity : AppCompatActivity(), ZXingScannerView.ResultHandler {
             finish()
         }
 
+    }
+
+    private fun playSuccessSound() {
+        val media = MediaPlayer.create(this, R.raw.thank_you)
+        media.start()
+        Toast.makeText(this, "Thank you!", Toast.LENGTH_LONG).show()
+        finish()
     }
 
 }

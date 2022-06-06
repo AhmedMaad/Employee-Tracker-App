@@ -9,5 +9,10 @@ class TotalAbsenceActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         val binding = ActivityTotalAbsenceBinding.inflate(layoutInflater)
         setContentView(binding.root)
+        title = "Total Absence"
+
+        //show list of sign in/out
+        //modification: try to make an array of each day in sign in /out
+
     }
 }
