@@ -147,6 +147,22 @@
 
         </androidx.cardview.widget.CardView>
 
+        <androidx.cardview.widget.CardView
+            android:id="@+id/view_sick_cv"
+            android:layout_width="160dp"
+            android:layout_height="160dp"
+            app:cardCornerRadius="24dp"
+            app:layout_constraintStart_toStartOf="@id/sign_cv"
+            app:layout_constraintTop_toTopOf="@id/view_slip_cv">
+
+            <TextView
+                style="@style/EmpHomeTV"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Sick\nRequest\nStatus" />
+
+        </androidx.cardview.widget.CardView>
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 </ScrollView>

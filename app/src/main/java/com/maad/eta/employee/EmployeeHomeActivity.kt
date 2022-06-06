@@ -69,6 +69,10 @@ class EmployeeHomeActivity : AppCompatActivity() {
             startActivity(Intent(this, ViewPaySlipActivity::class.java))
         }
 
+        binding.viewSickCv.setOnClickListener {
+            startActivity(Intent(this, EmpViewSickRequestActivity::class.java))
+        }
+
         binding.slipCv.setOnClickListener {
             binding.progress.visibility = View.VISIBLE
             binding.slipCv.visibility = View.INVISIBLE

@@ -67,7 +67,7 @@ class ViewSickRequestActivity : AppCompatActivity(), SickRequestAdapter.ItemClic
                         db.collection("employees").document(requests[position].userId)
                             .update(map as Map<String, Long>).addOnSuccessListener {
                                 val statusMap = HashMap<String, String>()
-                                statusMap["status"] = "approved"
+                                statusMap["status"] = "Approved"
                                 db.collection("SickRequests").document(requests[position].requestId)
                                     .update(statusMap as Map<String, String>).addOnSuccessListener {
                                         requests.removeAt(position)
@@ -82,7 +82,7 @@ class ViewSickRequestActivity : AppCompatActivity(), SickRequestAdapter.ItemClic
 
     override fun onRejectBtnClick(position: Int) {
         val statusMap = HashMap<String, String>()
-        statusMap["status"] = "rejected"
+        statusMap["status"] = "Rejected"
         db.collection("SickRequests").document(requests[position].requestId)
             .update(statusMap as Map<String, String>).addOnSuccessListener {
                 requests.removeAt(position)
