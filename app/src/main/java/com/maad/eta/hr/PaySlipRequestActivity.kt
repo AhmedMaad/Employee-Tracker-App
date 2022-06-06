@@ -25,7 +25,6 @@ class PaySlipRequestActivity : AppCompatActivity() {
         setContentView(binding.root)
         title = "Pay Slip Requests"
         db = Firebase.firestore
-
     }
 
     override fun onResume() {
@@ -46,6 +45,7 @@ class PaySlipRequestActivity : AppCompatActivity() {
             binding.lv.setOnItemClickListener { _, _, position, _ ->
                 val i = Intent(this, SendPaySlipActivity::class.java)
                 i.putExtra("id", userIds[position])
+                i.putExtra("slipId", slips[position])
                 startActivity(i)
             }
 
