@@ -39,8 +39,10 @@ class NewAnnualRequestActivity : AppCompatActivity(), DatePickerDialog.OnDateSet
                 val id = prefs.getString("id", null)!!
                 val vacation = Vacation(id, date, year, month, day, intent.getStringExtra("name")!!)
                 db.collection("annualVacations").add(vacation).addOnSuccessListener {
-                    Toast.makeText(this, "Enjoy your vacation!", Toast.LENGTH_SHORT).show();
-                    finish()
+                    it.update("vacationId", it.id).addOnSuccessListener {
+                        Toast.makeText(this, "Enjoy your vacation!", Toast.LENGTH_SHORT).show();
+                        finish()
+                    }
                 }
             }
 

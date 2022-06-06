@@ -57,11 +57,10 @@ class SendPaySlipActivity : AppCompatActivity() {
 
             val bonus = binding.bonusEt.text.toString().toInt()
             val social = binding.socialEt.text.toString().toInt()
-            val bus = binding.busCb.isSelected
+            val bus = binding.busCb.isChecked
             val box = binding.boxEt.text.toString().toInt()
             val health = binding.healthEt.text.toString().toInt()
             val absence = binding.absenceEt.text.toString().toInt()
-            //update status - send current date - delete item from recycler view
 
             val slip = PaySlip(
                 intent.getStringExtra("id")!!,

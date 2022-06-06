@@ -13,6 +13,7 @@ import com.google.firebase.ktx.Firebase
 import com.maad.eta.LoginActivity
 import com.maad.eta.R
 import com.maad.eta.databinding.ActivityHrhomeBinding
+import com.maad.eta.employee.Employee
 import com.maad.eta.employee.SickRequest
 
 class HRHomeActivity : AppCompatActivity() {
@@ -70,14 +71,26 @@ class HRHomeActivity : AppCompatActivity() {
             db.collection("annualVacations").get().addOnSuccessListener { y ->
                 val allVacations = y.documents
                 for (sick in allVacations)
-                    db.collection("annualVacations").document(sick.getString("requestId")!!)
+                    db.collection("annualVacations").document(sick.getString("vacationId")!!)
                         .delete()
                 db.collection("trackers").get().addOnSuccessListener { z ->
                     val trackers = z.documents
                     for (sick in trackers)
-                        db.collection("trackers").document(sick.getString("requestId")!!)
+                        db.collection("trackers").document(sick.getString("trackId")!!)
                             .delete()
-                    Toast.makeText(this, "Everything is now deleted", Toast.LENGTH_SHORT).show();
+                    db.collection("PaySlips").get().addOnSuccessListener { h ->
+                        val slips = h.documents
+                        for (sick in slips)
+                            db.collection("PaySlips").document(sick.getString("slipId")!!)
+                                .delete()
+                        db.collection("employees").get().addOnSuccessListener { j ->
+                            val employees = j.toObjects(Employee::class.java)
+                            for (e in employees)
+                                db.collection("employees").document(e.id).update("sicknessDays", 0)
+                        }
+                        Toast.makeText(this, "Everything is now deleted", Toast.LENGTH_SHORT)
+                            .show()
+                    }
                 }
             }
         }

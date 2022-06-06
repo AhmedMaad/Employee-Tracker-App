@@ -6,7 +6,8 @@ class Vacation(
     val year: String = "",
     val month: String = "",
     val day: String = "",
-    val name: String = ""
+    val name: String = "",
+    val vacationId: String = ""
     /*val remainingBalance: String = "",
     val consumedBalance: String = "",
     val totalBalance: Int = 21,*/
