@@ -6,17 +6,6 @@
     android:layout_height="match_parent"
     tools:context=".LoginActivity">
 
-    <ImageView
-        android:id="@+id/logo_iv"
-        android:layout_width="80dp"
-        android:layout_height="80dp"
-        android:layout_margin="16dp"
-        android:layout_marginTop="32dp"
-        android:src="@drawable/logo"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
     <View
         android:layout_width="300dp"
         android:layout_height="60dp"

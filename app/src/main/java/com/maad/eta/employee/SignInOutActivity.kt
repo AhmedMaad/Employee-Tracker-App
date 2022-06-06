@@ -61,18 +61,22 @@ class SignInOutActivity : AppCompatActivity(), ZXingScannerView.ResultHandler {
 
         if (rawResult!!.text == "ETA") {
 
-            db.collection("trackers").get().addOnSuccessListener { it ->
-                val all = it.toObjects(Tracker::class.java)
-                for (tracking in all)
-                    if (tracking.date == date && tracking.EmpId == id) {
+            db.collection("trackers").get().addOnSuccessListener { x ->
+                val all = x.toObjects(Tracker::class.java)
+                for (tracking in all){
+                    Log.d("trace", "Emp ID: $id/ Found Id: ${tracking.empId}")
+                    if (tracking.date == date && tracking.empId == id) {
                         Log.d("trace", "date found")
                         dateFound = true
                         foundTime = tracking.time
                         trackId = tracking.trackId
                         break
                     }
+                }
+
 
                 if (!dateFound) {
+                    Log.d("trace", "date NOT found")
                     db.collection("trackers").add(tracker).addOnSuccessListener { doc ->
                         val trackIdMap = HashMap<String, String>()
                         trackIdMap["trackId"] = doc.id
@@ -89,7 +93,6 @@ class SignInOutActivity : AppCompatActivity(), ZXingScannerView.ResultHandler {
                 }
 
             }
-
 
         } else {
             val media = MediaPlayer.create(this, R.raw.try_again)

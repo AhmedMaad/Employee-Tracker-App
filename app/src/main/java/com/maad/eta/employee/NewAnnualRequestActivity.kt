@@ -34,10 +34,10 @@ class NewAnnualRequestActivity : AppCompatActivity(), DatePickerDialog.OnDateSet
         binding.submitRequestBtn.setOnClickListener {
             if (binding.dateTv.text.toString().isEmpty())
                 Toast.makeText(this, "Choose a date first", Toast.LENGTH_SHORT).show()
-            else{
+            else {
                 val prefs = getSharedPreferences("settings", MODE_PRIVATE)
                 val id = prefs.getString("id", null)!!
-                val vacation = Vacation(id, date, year, month, day)
+                val vacation = Vacation(id, date, year, month, day, intent.getStringExtra("name")!!)
                 db.collection("annualVacations").add(vacation).addOnSuccessListener {
                     Toast.makeText(this, "Enjoy your vacation!", Toast.LENGTH_SHORT).show();
                     finish()
@@ -49,8 +49,8 @@ class NewAnnualRequestActivity : AppCompatActivity(), DatePickerDialog.OnDateSet
     }
 
     override fun onDateSet(view: DatePicker?, year: Int, month: Int, dayOfMonth: Int) {
-        date = "$year/${month + 1}/$dayOfMonth"
-        this.month = "${(month+1)}"
+        date = "$dayOfMonth/${month + 1}/$year"
+        this.month = "${(month + 1)}"
         this.year = year.toString()
         this.day = dayOfMonth.toString()
         binding.dateTv.text = date

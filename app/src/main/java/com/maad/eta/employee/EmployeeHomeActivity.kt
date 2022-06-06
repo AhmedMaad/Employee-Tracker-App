@@ -27,6 +27,7 @@ import com.maad.eta.databinding.ActivityEmployeeHomeBinding
 class EmployeeHomeActivity : AppCompatActivity() {
 
     private lateinit var db: FirebaseFirestore
+    private var name: String = ""
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -46,11 +47,14 @@ class EmployeeHomeActivity : AppCompatActivity() {
         db.collection("employees").document(id).get().addOnSuccessListener {
             val employee = it.toObject(Employee::class.java)!!
             Glide.with(this).load(employee.picture).into(binding.ppIv)
-            binding.nameTv.append("\n${employee.name}")
+            name = employee.name
+            binding.nameTv.append("\n$name")
         }
 
         binding.annualCv.setOnClickListener {
-            startActivity(Intent(this, AnnualVacationActivity::class.java))
+            val i = Intent(this, AnnualVacationActivity::class.java)
+            i.putExtra("name", name)
+            startActivity(i)
         }
 
         binding.sickCv.setOnClickListener {

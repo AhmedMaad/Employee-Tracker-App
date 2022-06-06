@@ -29,8 +29,11 @@ class AnnualVacationActivity : AppCompatActivity() {
             if (vacationsConsumed == 21)
                 Toast.makeText(this, "You have consumed all of your vacations", Toast.LENGTH_SHORT)
                     .show()
-            else
-                startActivity(Intent(this, NewAnnualRequestActivity::class.java))
+            else{
+                val i = Intent(this, NewAnnualRequestActivity::class.java)
+                i.putExtra("name", intent.getStringExtra("name"))
+                startActivity(i)
+            }
         }
 
     }
