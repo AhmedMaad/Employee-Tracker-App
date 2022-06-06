@@ -12,6 +12,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.ETA">
         <activity
+            android:name=".employee.PaySlipDetailsActivity"
+            android:exported="false" />
+        <activity
             android:name=".hr.TotalAbsenceActivity"
             android:exported="false" />
         <activity
@@ -23,12 +26,6 @@
         <activity
             android:name=".hr.FullImageActivity"
             android:exported="false" />
-        <activity
-            android:name=".employee.ImageFullscreenActivity"
-            android:configChanges="orientation|keyboardHidden|screenSize"
-            android:exported="false"
-            android:label="@string/title_activity_image_fullscreen"
-            android:theme="@style/Theme.ETA.Fullscreen" />
         <activity
             android:name=".hr.SendPaySlipActivity"
             android:exported="false" />

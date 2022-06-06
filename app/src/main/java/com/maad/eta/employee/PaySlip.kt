@@ -1,5 +1,9 @@
 package com.maad.eta.employee
 
+import android.os.Parcelable
+import kotlinx.parcelize.Parcelize
+
+@Parcelize
 class PaySlip(
     val userId: String = "",
     val slipId: String = "",
@@ -11,4 +15,4 @@ class PaySlip(
     val healthInsurance: Int = 0,
     val absence: Int = 0,
     val date: String = "",
-)
+) : Parcelable

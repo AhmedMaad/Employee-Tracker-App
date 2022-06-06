@@ -1,0 +1,241 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp"
+    tools:context=".employee.PaySlipDetailsActivity">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/name_key_tv"
+            style="@style/HeaderTV"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Name: "
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/name_value_tv"
+            style="@style/DetailsTV"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="@id/name_key_tv"
+            app:layout_constraintStart_toEndOf="@id/name_key_tv"
+            tools:text="@tools:sample/full_names" />
+
+        <TextView
+            android:id="@+id/type_key_tv"
+            style="@style/HeaderTV"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Employment Type: "
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/name_key_tv" />
+
+        <TextView
+            android:id="@+id/type_value_tv"
+            style="@style/DetailsTV"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="@id/type_key_tv"
+            app:layout_constraintStart_toEndOf="@id/type_key_tv"
+            tools:text="@tools:sample/full_names" />
+
+        <TextView
+            android:id="@+id/position_key_tv"
+            style="@style/HeaderTV"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Position: "
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/type_key_tv" />
+
+        <TextView
+            android:id="@+id/position_value_tv"
+            style="@style/DetailsTV"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="@id/position_key_tv"
+            app:layout_constraintStart_toEndOf="@id/position_key_tv"
+            tools:text="@tools:sample/full_names" />
+
+        <TextView
+            android:id="@+id/gross_salary_key_tv"
+            style="@style/HeaderTV"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Gross Salary: "
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/position_key_tv" />
+
+        <TextView
+            android:id="@+id/gross_salary_value_tv"
+            style="@style/DetailsTV"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="@id/gross_salary_key_tv"
+            app:layout_constraintStart_toEndOf="@id/gross_salary_key_tv"
+            tools:text="5000" />
+
+        <TextView
+            android:id="@+id/sick_key_tv"
+            style="@style/HeaderTV"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Sickness Days: "
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/gross_salary_key_tv" />
+
+        <TextView
+            android:id="@+id/sick_value_tv"
+            style="@style/DetailsTV"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="@id/sick_key_tv"
+            app:layout_constraintStart_toEndOf="@id/sick_key_tv"
+            tools:text="6" />
+
+        <TextView
+            android:id="@+id/bonus_key_tv"
+            style="@style/HeaderTV"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Bonus: "
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/sick_key_tv" />
+
+        <TextView
+            android:id="@+id/bonus_tv"
+            style="@style/DetailsTV"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            app:layout_constraintBottom_toBottomOf="@id/bonus_key_tv"
+            app:layout_constraintStart_toEndOf="@id/bonus_key_tv"
+            tools:text="50" />
+
+        <TextView
+            android:id="@+id/social_key_tv"
+            style="@style/HeaderTV"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Social Insurance: "
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/bonus_key_tv" />
+
+        <TextView
+            android:id="@+id/social_tv"
+            style="@style/DetailsTV"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            app:layout_constraintBottom_toBottomOf="@id/social_key_tv"
+            app:layout_constraintStart_toEndOf="@id/social_key_tv"
+            tools:text="300" />
+
+        <TextView
+            android:id="@+id/bus_key_tv"
+            style="@style/HeaderTV"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="Bus Fees (75 L.E.): "
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/social_key_tv" />
+
+        <TextView
+            android:id="@+id/bus_value_tv"
+            style="@style/DetailsTV"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            app:layout_constraintBottom_toBottomOf="@id/bus_key_tv"
+            app:layout_constraintStart_toEndOf="@id/social_key_tv"
+            tools:text="YES" />
+
+        <TextView
+            android:id="@+id/box_key_tv"
+            style="@style/HeaderTV"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Fellowship Fund: "
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/bus_key_tv" />
+
+        <TextView
+            android:id="@+id/box_tv"
+            style="@style/DetailsTV"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            app:layout_constraintBottom_toBottomOf="@id/box_key_tv"
+            app:layout_constraintStart_toEndOf="@id/box_key_tv"
+            tools:text="65" />
+
+        <TextView
+            android:id="@+id/health_key_tv"
+            style="@style/HeaderTV"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Health Insurance: "
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/box_key_tv" />
+
+        <TextView
+            android:id="@+id/health_tv"
+            style="@style/DetailsTV"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="@id/health_key_tv"
+            app:layout_constraintStart_toEndOf="@id/health_key_tv"
+            tools:text="120" />
+
+        <TextView
+            android:id="@+id/absence_key_tv"
+            style="@style/HeaderTV"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/total_absence_no_line"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/health_key_tv" />
+
+        <TextView
+            android:id="@+id/absence_tv"
+            style="@style/DetailsTV"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="@id/absence_key_tv"
+            app:layout_constraintStart_toEndOf="@id/absence_key_tv"
+            tools:text="150" />
+
+        <TextView
+            android:id="@+id/net_salary_key_tv"
+            style="@style/HeaderTV"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            android:text="Net Salary"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/absence_key_tv" />
+
+        <TextView
+            android:id="@+id/net_salary_value_tv"
+            style="@style/DetailsTV"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="32dp"
+            app:layout_constraintBottom_toBottomOf="@id/net_salary_key_tv"
+            app:layout_constraintStart_toEndOf="@id/net_salary_key_tv"
+            tools:text="4120" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</ScrollView>

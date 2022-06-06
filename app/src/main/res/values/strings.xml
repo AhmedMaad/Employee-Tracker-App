@@ -1,8 +1,6 @@
 <resources>
     <string name="app_name">ETA</string>
     <string name="click_to_choose_date"><u>Click to choose date</u></string>
-    <string name="title_activity_image_fullscreen">ImageFullscreenActivity</string>
-    <string name="dummy_button">Dummy Button</string>
-    <string name="dummy_content">DUMMY\nCONTENT</string>
-    <string name="total_absence"><u>Total Absence:</u></string>
+    <string name="total_absence"><u>Absence Deduction: </u></string>
+    <string name="total_absence_no_line">Absence Deduction:</string>
 </resources>
